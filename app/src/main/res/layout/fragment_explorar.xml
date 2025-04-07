@@ -1,0 +1,306 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 📌 Barra superior (TopPanel) que siempre estará arriba -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"> <!-- 📌 Fijado arriba -->
+
+        <ImageView
+            android:id="@+id/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="45sp"
+            android:layout_height="45dp"
+            android:src="@drawable/arrow_back" />
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Explorar"
+            android:textColor="@color/white"
+            android:textSize="28dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 📌 ScrollView con el contenido desplazable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topPanel"> <!-- 📌 Se coloca debajo del TopPanel -->
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Contenido desplazable -->
+
+
+            <ImageButton
+                android:layout_gravity="center_vertical"
+                android:id="@+id/imageButton"
+                android:scaleType="fitCenter"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/python"
+                android:background="@color/lgray"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Programacion"
+                android:textSize="22sp"
+                android:textColor="@color/black"/>
+
+            <!-- Sección para el HorizontalScrollView -->
+            <LinearLayout
+                android:id="@+id/programacioncontent"
+                android:layout_width="match_parent"
+                android:layout_height="150sp"
+                android:background="@color/lgray"
+                android:padding="16dp"
+                android:orientation="horizontal"
+                android:layout_alignParentTop="true"> <!-- 📌 Fijado arriba -->
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- LinearLayout dentro del HorizontalScrollView para contener las imágenes -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <!-- Imagen dentro del HorizontalScrollView -->
+                        <ImageButton
+                            android:id="@+id/pythonpart1"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/pythonpart1"
+                            android:layout_marginEnd="16dp" /> <!-- Añadimos una pequeña separación entre las imágenes -->
+
+                        <!-- Otra imagen, puedes agregar más si lo deseas -->
+                        <ImageButton
+                            android:id="@+id/pythonpart2"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/pythonpart2"
+                            android:layout_marginEnd="16dp" />
+
+                        <!-- Y otra más si es necesario -->
+                        <ImageButton
+                            android:id="@+id/pythonpart3"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/pythonpart3"
+                            android:layout_marginEnd="16dp" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Base de Datos"
+                android:textSize="22sp"
+                android:textColor="@color/black"/>
+
+            <!-- Sección para el HorizontalScrollView -->
+            <LinearLayout
+                android:id="@+id/basededatoscontent"
+                android:layout_width="match_parent"
+                android:layout_height="150sp"
+                android:background="@color/lgray"
+                android:padding="16dp"
+                android:orientation="horizontal"
+                android:layout_alignParentTop="true"> <!-- 📌 Fijado arriba -->
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- LinearLayout dentro del HorizontalScrollView para contener las imágenes -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <!-- Imagen dentro del HorizontalScrollView -->
+                        <ImageButton
+                            android:id="@+id/bddpart1"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/basededatospart1"
+                            android:layout_marginEnd="16dp" /> <!-- Añadimos una pequeña separación entre las imágenes -->
+
+                        <!-- Otra imagen, puedes agregar más si lo deseas -->
+                        <ImageButton
+                            android:id="@+id/bddpart2"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/bddpart2"
+                            android:layout_marginEnd="16dp" />
+
+                        <!-- Y otra más si es necesario -->
+                        <ImageButton
+                            android:id="@+id/bddpart3"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/bddpart3"
+                            android:layout_marginEnd="16dp" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Redes e Infraestructura"
+                android:textSize="22sp"
+                android:textColor="@color/black"/>
+
+            <!-- Sección para el HorizontalScrollView -->
+            <LinearLayout
+                android:id="@+id/redescontent"
+                android:layout_width="match_parent"
+                android:layout_height="150sp"
+                android:background="@color/lgray"
+                android:padding="16dp"
+                android:orientation="horizontal"
+                android:layout_alignParentTop="true"> <!-- 📌 Fijado arriba -->
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- LinearLayout dentro del HorizontalScrollView para contener las imágenes -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <!-- Imagen dentro del HorizontalScrollView -->
+                        <ImageButton
+                            android:id="@+id/redespart1"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/redespart1"
+                            android:layout_marginEnd="16dp" /> <!-- Añadimos una pequeña separación entre las imágenes -->
+
+                        <!-- Otra imagen, puedes agregar más si lo deseas -->
+                        <ImageButton
+                            android:id="@+id/redespart2"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/redespart2"
+                            android:layout_marginEnd="16dp" />
+
+                        <!-- Y otra más si es necesario -->
+                        <ImageButton
+                            android:id="@+id/redespart3"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/redespart3"
+                            android:layout_marginEnd="16dp" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ciencia"
+                android:textSize="22sp"
+                android:textColor="@color/black"/>
+
+            <!-- Sección para el HorizontalScrollView -->
+            <LinearLayout
+                android:id="@+id/cienciacontent"
+                android:layout_width="match_parent"
+                android:layout_height="150sp"
+                android:background="@color/lgray"
+                android:padding="16dp"
+                android:orientation="horizontal"
+                android:layout_alignParentTop="true"> <!-- 📌 Fijado arriba -->
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- LinearLayout dentro del HorizontalScrollView para contener las imágenes -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <!-- Imagen dentro del HorizontalScrollView -->
+                        <ImageButton
+                            android:id="@+id/sciencepart1"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/astronomiapart1"
+                            android:layout_marginEnd="16dp" /> <!-- Añadimos una pequeña separación entre las imágenes -->
+
+                        <!-- Otra imagen, puedes agregar más si lo deseas -->
+                        <ImageButton
+                            android:id="@+id/sciencepart2"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/fisicapart2"
+                            android:layout_marginEnd="16dp" />
+
+                        <!-- Y otra más si es necesario -->
+                        <ImageButton
+                            android:id="@+id/sciencepart3"
+                            android:scaleType="fitCenter"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/quimicapart3"
+                            android:layout_marginEnd="16dp" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <TextView
+                android:textColor="@color/gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SkillHub ©️"
+                android:textSize="16sp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
