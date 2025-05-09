@@ -7,8 +7,8 @@
     <item android:id="@+id/buscar"
         android:title="Buscar"
         android:icon="@drawable/buscar"/>
-    <item android:id="@+id/guardados"
-        android:title="Guardados"
+    <item android:id="@+id/avisos"
+        android:title="Avisos"
         android:icon="@drawable/guardados"/>
     <item android:id="@+id/perfil"
         android:title="Perfil"

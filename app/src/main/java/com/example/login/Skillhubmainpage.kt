@@ -9,7 +9,7 @@ class Skillhubmainpage : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var explorar: Explorar
     private lateinit var buscar: Buscar
-    private lateinit var guardados: Guardados
+    private lateinit var avisos: Avisos
     private lateinit var perfil: Perfil
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,7 @@ class Skillhubmainpage : AppCompatActivity() {
         // Inicializar los fragmentos correctamente
         explorar = Explorar()
         buscar = Buscar()  // Suponiendo que tienes un fragmento "Buscar"
-        guardados = Guardados()  // Suponiendo que tienes un fragmento "Guardados"
+        avisos = Avisos()  // Suponiendo que tienes un fragmento "Avisos"
         perfil = Perfil()  // Suponiendo que tienes un fragmento "Perfil"
 
         bottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -33,7 +33,7 @@ class Skillhubmainpage : AppCompatActivity() {
             when (item.itemId) {
                 R.id.explorar -> loadFragment(explorar)
                 R.id.buscar -> loadFragment(buscar)
-                R.id.guardados -> loadFragment(guardados)
+                R.id.avisos -> loadFragment(avisos)
                 R.id.perfil -> loadFragment(perfil)
                 else -> false
             }
