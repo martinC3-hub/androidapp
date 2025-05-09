@@ -29,7 +29,7 @@ class Buscar : Fragment() {
             startActivity(intent)
         }
 
-        val buttonback= rootView.findViewById<ImageButton>(R.id.flecha)
+        val buttonback= rootView.findViewById<ImageButton>(R.id.back)
         buttonback.setOnClickListener{
             val intent=Intent(Intent.ACTION_VIEW, Uri.parse("https://facebook.com"))
             startActivity(intent)

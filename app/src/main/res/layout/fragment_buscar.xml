@@ -7,18 +7,49 @@
     tools:context=".MainActivity">
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_alignParentTop="true"> <!-- 📌 Fijado arriba -->
 
+        <ImageButton
+            android:id="@+id/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="45sp"
+            android:layout_height="45dp"
+            android:src="@drawable/arrow_back"
+            android:background="@android:color/transparent"
+            />
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar"
+            android:textColor="@color/white"
+            android:textSize="28dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        app:layout_constraintTop_toBottomOf="@id/frameLayout">
+        app:layout_constraintTop_toBottomOf="@id/topPanel">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            >
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -36,7 +67,7 @@
                     android:elevation="4dp"
                     android:padding="16dp">
 
-                    <ImageView
+                    <ImageButton
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:background="@color/black"
@@ -93,10 +124,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:orientation="vertical"
                     android:background="@color/white"
                     android:layout_marginTop="326dp"
-                    android:elevation="4dp"
                     android:padding="16dp">
 
                     <TextView
@@ -106,204 +137,10 @@
                         android:textStyle="bold"
                         android:textSize="16sp" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="8dp">
-
-                            <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:background="@color/black" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:paddingStart="8dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Título"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="tema"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/gray" />
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:layout_marginTop="447dp"
-                    android:elevation="4dp"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Contenido2"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="8dp">
-
-                            <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:background="@color/black" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:paddingStart="8dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Título"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="tema"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/gray" />
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:layout_marginTop="567.5dp"
-                    android:elevation="4dp"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Contenido3"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="8dp">
-
-                            <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:background="@color/black" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:paddingStart="8dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Título"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="tema"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/gray" />
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="94dp"
-        android:background="@color/blue"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="88dp"
-        android:text="Documentos"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:paddingTop="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
-        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
-        app:layout_constraintStart_toStartOf="@id/frameLayout"
-        app:layout_constraintTop_toTopOf="@+id/frameLayout"></TextView>
-
-
-    <ImageButton
-        android:id="@+id/flecha"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
-        android:paddingTop="45dp"
-        android:src="@drawable/arrow_back"
-        android:backgroundTint="@color/blue"
-        app:layout_constraintBottom_toBottomOf="@id/frameLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/frameLayout"
-        tools:ignore="MissingConstraints"></ImageButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
