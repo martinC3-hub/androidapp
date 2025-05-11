@@ -3,5 +3,44 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="facultades_uaq">
+        <item>Todas las Facultades</item>
+        <item>Facultad de Bellas Artes</item>
+        <item>Facultad de Ciencias Naturales</item>
+        <item>Facultad de Ciencias Políticas y Sociales</item>
+        <item>Facultad de Contaduría y Administración</item>
+        <item>Facultad de Derecho</item>
+        <item>Facultad de Enfermería</item>
+        <item>Facultad de Filosofía</item>
+        <item>Facultad de Informática</item>
+        <item>Facultad de Ingeniería</item>
+        <item>Facultad de Lenguas y Letras</item>
+        <item>Facultad de Medicina</item>
+        <item>Facultad de Psicología</item>
+        <item>Facultad de Química</item>
+        <item>Campus Amazcala</item>
+        <item>Campus Aeropuerto</item>
+        <item>Campus Amealco</item>
+        <item>Campus Corregidora</item>
+        <item>Campus Concá</item>
+        <item>Campus Cadereyta</item>
+        <item>Campus Centro Histórico</item>
+        <item>Centro Universitario</item>
+        <item>Campus Juriquilla</item>
+        <item>Campus Jalpan</item>
+        <item>Campus La Capilla</item>
+        <item>Campus San Juan del Río</item>
+        <item>Campus Tequisquiapan</item>
+        <item>Campus Pinal de Amoles</item>
+    </string-array>
+
+    <string-array name="tipos_aviso">
+        <item>Compra</item>
+        <item>Venta</item>
+        <item>Aviso</item>
+        <item>Tramite</item>
+        <item>Evento</item>
+
+
+    </string-array>
 </resources>

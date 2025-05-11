@@ -13,6 +13,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 class Avisos : Fragment() {
     private lateinit var db: FirebaseFirestore
     private lateinit var adapter: ArrayAdapter<String>
+    private lateinit var buttonAdd: ImageButton
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,19 +22,26 @@ class Avisos : Fragment() {
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_avisos, container, false)
 
-        // Botón para abrir PDF
-        val button = rootView.findViewById<Button>(R.id.descarga)
-        button.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sence.gob.cl/sites/default/files/elabor1.pdf"))
-            startActivity(intent)
-        }
-
         // Botón de retroceso que abre Facebook (?)
         val buttonback = rootView.findViewById<ImageButton>(R.id.back)
         buttonback.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://facebook.com"))
             startActivity(intent)
         }
+        // Inicializar el botón en el top bar
+
+        // Inicializar el botón en el top bar
+        buttonAdd = rootView.findViewById(R.id.add)  // El ID de tu ImageButton en el top bar
+
+        // Configurar el listener para el botón de agregar
+        buttonAdd.setOnClickListener {
+            // Al hacer clic en el botón, reemplaza el fragmento actual por "Add"
+            val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.container, Add())  // Cambia "R.id.container" por el ID del contenedor de fragmentos
+            fragmentTransaction.addToBackStack(null)  // Esto permite regresar al fragmento anterior
+            fragmentTransaction.commit()
+        }
+
 
         // Inicializar Firestore
         db = FirebaseFirestore.getInstance()
