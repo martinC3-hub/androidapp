@@ -35,8 +35,7 @@
     </string-array>
 
     <string-array name="tipos_aviso">
-        <item>Compra</item>
-        <item>Venta</item>
+        <item>Compra Y Venta</item>
         <item>Aviso</item>
         <item>Tramite</item>
         <item>Evento</item>

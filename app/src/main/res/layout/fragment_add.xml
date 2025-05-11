@@ -54,7 +54,7 @@
             <!-- CV Card -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:background="@color/white"
                 android:elevation="4dp"
@@ -74,6 +74,7 @@
                 <EditText
                     android:id="@+id/tituloInput"
                     android:hint="Titulo"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/text"
@@ -86,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:text="Agregar una etiqueta"
                     android:textSize="15dp"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/black"
                     app:layout_constraintTop_toBottomOf="@id/tituloInput"
                     app:layout_constraintStart_toStartOf="@id/tituloInput"/>
                 <Spinner
@@ -94,15 +95,20 @@
                     app:layout_constraintStart_toStartOf="@id/flairs"
                     android:id="@+id/spinner_flairs"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:spinnerMode="dropdown"/>
+                    android:layout_height="35dp"
+                    android:spinnerMode="dropdown"
+                    android:background="@color/gray"
+                    />
                 <Spinner
                     app:layout_constraintTop_toBottomOf="@id/flairs"
                     app:layout_constraintStart_toEndOf="@id/spinner_flairs"
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:id="@+id/spinner_etiqueta"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:spinnerMode="dropdown"/>
+                    android:layout_height="35dp"
+                    android:spinnerMode="dropdown"
+                    android:background="@color/gray"
+                    />
                 <EditText
                     android:id="@+id/cuerpoInput"
                     android:hint="cuerpo de texto (opcional)"
@@ -110,6 +116,8 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/spinner_flairs"
                     app:layout_constraintStart_toStartOf="@id/tituloInput"
+                    android:textColor="@color/black"
+
                     />
 
                 <Button

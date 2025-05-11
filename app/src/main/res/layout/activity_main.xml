@@ -34,7 +34,8 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"></androidx.appcompat.widget.AppCompatEditText>
+        app:layout_constraintVertical_bias="0.7"
+        android:textColor="@color/black"></androidx.appcompat.widget.AppCompatEditText>
 
     <TextView
         android:id="@+id/titulo3"
@@ -86,14 +87,15 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintVertical_bias="0.3"
+        android:textColor="@color/black">
 
     </androidx.appcompat.widget.AppCompatEditText>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registrar"
         android:layout_width="125sp"
-        android:layout_height="40sp"
+        android:layout_height="48sp"
         android:backgroundTint="@color/blue"
         android:padding="5sp"
         android:text="Registrarse"
@@ -108,7 +110,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/aceptar"
         android:layout_width="200sp"
-        android:layout_height="40sp"
+        android:layout_height="48sp"
         android:backgroundTint="@color/blue"
         android:padding="5sp"
         android:text="Aceptar"
@@ -118,7 +120,8 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toBottomOf="@id/input"
-        app:layout_constraintVertical_bias="0.2"></androidx.appcompat.widget.AppCompatButton>
+        app:layout_constraintVertical_bias="0.2"
+        ></androidx.appcompat.widget.AppCompatButton>
 
     <ImageView
         android:id="@+id/imageView7"

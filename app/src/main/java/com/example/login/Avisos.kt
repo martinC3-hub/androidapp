@@ -25,8 +25,8 @@ class Avisos : Fragment() {
         // Botón de retroceso que abre Facebook (?)
         val buttonback = rootView.findViewById<ImageButton>(R.id.back)
         buttonback.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://facebook.com"))
-            startActivity(intent)
+            val intento= Intent(requireContext(), Skillhubmainpage::class.java)
+            startActivity(intento)
         }
         // Inicializar el botón en el top bar
 

@@ -34,7 +34,8 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
-        app:layout_constraintVertical_bias="0.831"></androidx.appcompat.widget.AppCompatEditText>
+        app:layout_constraintVertical_bias="0.831"
+        android:textColor="@color/black"></androidx.appcompat.widget.AppCompatEditText>
 
     <TextView
         android:id="@+id/titulocontra"
@@ -86,7 +87,8 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
-        app:layout_constraintVertical_bias="0.16"></androidx.appcompat.widget.AppCompatEditText>
+        app:layout_constraintVertical_bias="0.16"
+        android:textColor="@color/black"></androidx.appcompat.widget.AppCompatEditText>
 
 
 
@@ -113,7 +115,8 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
-        app:layout_constraintVertical_bias="0.30">
+        app:layout_constraintVertical_bias="0.30"
+        android:textColor="@color/black">
     </androidx.appcompat.widget.AppCompatEditText>
 
     <TextView
@@ -139,7 +142,8 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
-        app:layout_constraintVertical_bias="0.43">
+        app:layout_constraintVertical_bias="0.43"
+        android:textColor="@color/black">
     </androidx.appcompat.widget.AppCompatEditText>
 
     <TextView
@@ -165,7 +169,8 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
-        app:layout_constraintVertical_bias="0.561">
+        app:layout_constraintVertical_bias="0.561"
+        android:textColor="@color/black">
     </androidx.appcompat.widget.AppCompatEditText>
 
 
@@ -194,14 +199,15 @@
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
-        app:layout_constraintVertical_bias="0.695">
+        app:layout_constraintVertical_bias="0.695"
+        android:textColor="@color/black">
     </androidx.appcompat.widget.AppCompatEditText>
 
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registrar"
         android:layout_width="125sp"
-        android:layout_height="40sp"
+        android:layout_height="48sp"
         android:backgroundTint="@color/blue"
         android:padding="5sp"
         android:text="Registrarse"
