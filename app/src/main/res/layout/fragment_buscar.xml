@@ -1,62 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/topPanel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/blue"
-        android:padding="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_alignParentTop="true"> <!-- 📌 Fijado arriba -->
 
-        <ImageButton
-            android:id="@+id/back"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="45sp"
-            android:layout_height="45dp"
-            android:src="@drawable/arrow_back"
-            android:background="@android:color/transparent"
-            />
 
-        <TextView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="@id/back"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buscar"
-            android:textColor="@color/white"
-            android:textSize="28dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        app:layout_constraintTop_toBottomOf="@id/topPanel">
+        android:layout_below="@id/frameLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="900dp"
-                android:layout_marginTop="78dp"
+                android:layout_height="830dp"
                 android:background="@color/black"
-                android:fillViewport="true"
                 >
 
                 <LinearLayout
@@ -65,82 +29,277 @@
                     android:orientation="vertical"
                     android:background="@color/white"
                     android:elevation="4dp"
-                    android:padding="16dp">
+                    android:padding="24dp">
 
-                    <ImageButton
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="@color/black"
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:backgroundTint="@color/black"
+                        android:background="@drawable/border"
                         android:layout_marginBottom="8dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Curriculum perfecto en pocos pasos"
-                        android:textSize="18sp"
+                        android:textSize="25sp"
                         android:textColor="@color/black"
+                        android:paddingLeft="10dp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CV"
-                        android:textSize="14sp"
+                        android:paddingLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
                         android:textColor="@color/gray" />
 
                     <Button
                         android:id="@+id/descarga"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Abrir"
-                        android:backgroundTint="@color/orange" />
+                        android:layout_marginTop="5dp"
+                        android:layout_width="440sp"
+                        android:layout_height="50sp"
+                        android:layout_gravity="top"
+                        android:backgroundTint="@color/orange"
+                        android:text="Abrir" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="148dp"
                     android:orientation="vertical"
                     android:background="@color/lgray"
-                    android:layout_marginTop="205dp">
+                    android:layout_marginTop="280dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Descripción"
+                        android:textColor="@color/black"
                         android:paddingLeft="15dp"
                         android:paddingTop="15dp"
                         android:textStyle="bold"
-                        android:textSize="16sp" />
+                        android:textSize="19sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="15dp"
                         android:text="Para tener un buen CV, asegúrate de incluir tus datos personales, un breve resumen profesional que destaque tus habilidades y objetivos..."
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:textColor="@color/gray" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:orientation="vertical"
                     android:background="@color/white"
-                    android:layout_marginTop="326dp"
-                    android:padding="16dp">
+                    android:layout_marginTop="415dp"
+                    android:elevation="4dp"
+                    android:padding="25dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Contenido"
                         android:textStyle="bold"
-                        android:textSize="16sp" />
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:background="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingStart="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Título"
+                                    android:paddingLeft="10dp"
+                                    android:textSize="25sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="tema"
+                                    android:textSize="17sp"
+                                    android:paddingLeft="10dp"
+                                    android:textColor="@color/gray" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:layout_marginTop="580dp"
+                    android:elevation="4dp"
+                    android:padding="25dp">
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:background="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingStart="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Título"
+                                    android:textSize="25sp"
+                                    android:paddingLeft="10dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="tema"
+                                    android:paddingLeft="10dp"
+                                    android:textSize="17sp"
+                                    android:textColor="@color/gray" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:layout_marginTop="690dp"
+                    android:elevation="4dp"
+                    android:padding="25dp">
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:background="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingStart="8dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Título"
+                                    android:paddingLeft="10dp"
+                                    android:textSize="25sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="tema"
+                                    android:paddingLeft="10dp"
+                                    android:textSize="17sp"
+                                    android:textColor="@color/gray" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/flecha"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="45sp"
+            android:layout_height="45dp"
+            android:src="@drawable/arrow_back" />
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/flecha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/flecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Documentos"
+            android:textColor="@color/white"
+            android:textSize="28dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

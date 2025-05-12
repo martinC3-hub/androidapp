@@ -20,7 +20,7 @@ class Buscar : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_buscar, container, false)
 
         // Get the button from the layout
-        val button = rootView.findViewById<Button>(R.id.descarga)
+       /* val button = rootView.findViewById<Button>(R.id.descarga)
 
         // Set the click listener
         button.setOnClickListener {
@@ -34,7 +34,7 @@ class Buscar : Fragment() {
             val intent=Intent(Intent.ACTION_VIEW, Uri.parse("https://facebook.com"))
             startActivity(intent)
         }
-
+*/
         return rootView
     }
 }

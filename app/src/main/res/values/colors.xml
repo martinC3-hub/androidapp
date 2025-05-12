@@ -14,5 +14,8 @@
     <color name="orange">#FA9034</color>
     <color name="lgray">#DADCE0</color>
     <color name="sgray">#878787</color>
+    <color name="trans">#00000000 </color>
+    <color name="ssgray">#DDDDDD</color>
+
 
 </resources>
