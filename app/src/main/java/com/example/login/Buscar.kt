@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.content.Intent
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 
 class Buscar : Fragment() {
 
@@ -20,21 +21,22 @@ class Buscar : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_buscar, container, false)
 
         // Get the button from the layout
-       /* val button = rootView.findViewById<Button>(R.id.descarga)
+        val button = rootView.findViewById<Button>(R.id.descarga)
 
         // Set the click listener
         button.setOnClickListener {
             // Open the specified URL in a browser
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sence.gob.cl/sites/default/files/elabor1.pdf"))
-            startActivity(intent)
+            Toast.makeText(getContext(), "Button volvera en avengers 2", Toast.LENGTH_SHORT).show()
         }
 
         val buttonback= rootView.findViewById<ImageButton>(R.id.back)
         buttonback.setOnClickListener{
-            val intent=Intent(Intent.ACTION_VIEW, Uri.parse("https://facebook.com"))
-            startActivity(intent)
-        }
-*/
+                val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.container, Avisos())  // Cambia "R.id.container" por el ID del contenedor de fragmentos
+                fragmentTransaction.addToBackStack(null)  // Esto permite regresar al fragmento anterior
+                fragmentTransaction.commit()
+            }
+
         return rootView
     }
 }

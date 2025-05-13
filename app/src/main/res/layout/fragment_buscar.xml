@@ -62,7 +62,7 @@
                         android:layout_width="440sp"
                         android:layout_height="50sp"
                         android:layout_gravity="top"
-                        android:backgroundTint="@color/orange"
+                        android:backgroundTint="@color/gray"
                         android:text="Abrir" />
                 </LinearLayout>
 
@@ -281,20 +281,21 @@
         android:orientation="horizontal"
         android:layout_alignParentTop="true">
 
-        <ImageView
-            android:id="@+id/flecha"
+        <ImageButton
+            android:id="@+id/back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="45sp"
             android:layout_height="45dp"
-            android:src="@drawable/arrow_back" />
+            android:src="@drawable/arrow_back"
+            android:background="@android:color/transparent"/>
 
         <TextView
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="@id/flecha"
+            app:layout_constraintStart_toStartOf="@id/back"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/flecha"
+            app:layout_constraintBottom_toBottomOf="@id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Documentos"
