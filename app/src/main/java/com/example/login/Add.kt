@@ -25,6 +25,7 @@ class Add : Fragment() {
         // Vincular elementos
         val titulo = rootView.findViewById<EditText>(R.id.tituloInput)
         val descripcion = rootView.findViewById<EditText>(R.id.cuerpoInput)
+        val contacto = rootView.findViewById<EditText>(R.id.contactoInput)
         val btn = rootView.findViewById<Button>(R.id.btnGuardar)
         val spinnerfacultad: Spinner = rootView.findViewById(R.id.spinner_flairs)
         val spinnertipo: Spinner = rootView.findViewById(R.id.spinner_etiqueta)
@@ -58,6 +59,7 @@ class Add : Fragment() {
         btn.setOnClickListener {
             val texto = titulo.text.toString()
             val desc = descripcion.text.toString()
+            val cont = contacto.text.toString()
             val selectedFaculty = spinnerfacultad.selectedItem?.toString() ?: "Todas las Facultades"
             val selectedTipo = spinnertipo.selectedItem?.toString() ?: "Sin tipo"
 
@@ -65,6 +67,7 @@ class Add : Fragment() {
                 val aviso = hashMapOf(
                     "titulo" to texto,
                     "descripcion" to desc,
+                    "contacto" to cont,
                     "facultad" to selectedFaculty,
                     "tipo" to selectedTipo
                 )
@@ -72,6 +75,8 @@ class Add : Fragment() {
                 db.collection("avisos").add(aviso)
                 titulo.text.clear()
                 descripcion.text.clear()
+                contacto.text.clear()
+                Toast.makeText(requireContext(), "Aviso guardado con éxito", Toast.LENGTH_SHORT).show()
             }
         }
 

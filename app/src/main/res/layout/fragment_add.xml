@@ -118,15 +118,24 @@
                     app:layout_constraintStart_toStartOf="@id/tituloInput"
                     android:textColor="@color/black"
 
-                    />
+                    /><EditText
+                android:id="@+id/contactoInput"
+                android:hint="datos de contacto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cuerpoInput"
+                app:layout_constraintStart_toStartOf="@id/tituloInput"
+                android:textColor="@color/black"
+
+                />
 
                 <Button
                     android:id="@+id/btnGuardar"
                     android:text="Guardar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/cuerpoInput"
-                    app:layout_constraintStart_toStartOf="@id/tituloInput"/>
+                    app:layout_constraintTop_toBottomOf="@id/contactoInput"
+                    app:layout_constraintStart_toStartOf="@id/contactoInput"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

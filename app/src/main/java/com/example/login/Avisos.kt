@@ -12,7 +12,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class Avisos : Fragment() {
     private lateinit var db: FirebaseFirestore
-    private lateinit var adapter: ArrayAdapter<String>
     private lateinit var buttonAdd: ImageButton
 
 
@@ -46,34 +45,31 @@ class Avisos : Fragment() {
         // Inicializar Firestore
         db = FirebaseFirestore.getInstance()
 
-        // Vincular elementos
-        val input = rootView.findViewById<EditText>(R.id.notaInput)
-        val btn = rootView.findViewById<Button>(R.id.btnGuardar)
-        val listView = rootView.findViewById<ListView>(R.id.listaNotas)
+        // Referencia al contenedor en tu layout
+        val contenedorAvisos = rootView.findViewById<LinearLayout>(R.id.contenedorAvisos)
 
-        // Configurar adaptador
-        adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, mutableListOf())
-        listView.adapter = adapter
+// Escuchar cambios en la colección "avisos"
+        db.collection("avisos").addSnapshotListener { snapshots, _ ->
+            contenedorAvisos.removeAllViews()
 
-        // Guardar nota en Firestore
-        btn.setOnClickListener {
-            val texto = input.text.toString()
-            if (texto.isNotEmpty()) {
-                val nota = hashMapOf("texto" to texto)
-                db.collection("notas").add(nota)
-                input.text.clear()
+            snapshots?.forEach { document ->
+                val avisoView = LayoutInflater.from(requireContext())
+                    .inflate(R.layout.item_aviso, contenedorAvisos, false)
+
+                avisoView.findViewById<TextView>(R.id.titulo).text = document.getString("titulo") ?: "Sin título"
+                avisoView.findViewById<TextView>(R.id.tipo).text = document.getString("tipo") ?: "Sin tipo"
+                avisoView.findViewById<TextView>(R.id.facultad).text = document.getString("facultad") ?: "Sin facultad"
+                avisoView.findViewById<TextView>(R.id.descripcion).text = document.getString("descripcion") ?: ""
+                avisoView.findViewById<TextView>(R.id.contacto).text = document.getString("contacto") ?: "Sin contacto"
+
+
+
+                contenedorAvisos.addView(avisoView)
             }
         }
 
-        // Escuchar cambios en Firestore
-        db.collection("notas").addSnapshotListener { snapshots, _ ->
-            val lista = mutableListOf<String>()
-            snapshots?.forEach {
-                lista.add(it.getString("texto") ?: "")
-            }
-            adapter.clear()
-            adapter.addAll(lista)
-        }
+
+
 
         return rootView
     }
