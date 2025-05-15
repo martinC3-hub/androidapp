@@ -16,6 +16,7 @@
     <color name="sgray">#878787</color>
     <color name="trans">#00000000 </color>
     <color name="ssgray">#DDDDDD</color>
+    <color name="darker_gray">#333333</color>
 
 
 </resources>

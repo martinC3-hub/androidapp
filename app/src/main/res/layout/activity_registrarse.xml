@@ -206,12 +206,13 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registrar"
-        android:layout_width="125sp"
+        android:layout_width="270sp"
         android:layout_height="48sp"
         android:backgroundTint="@color/blue"
         android:padding="5sp"
         android:text="Registrarse"
         android:textColor="@color/white"
+        android:background="@drawable/borderbutton"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"

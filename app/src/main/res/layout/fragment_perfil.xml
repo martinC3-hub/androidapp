@@ -1,7 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topPanel"
@@ -12,14 +14,15 @@
         android:orientation="horizontal"
         android:layout_alignParentTop="true">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="45sp"
             android:layout_height="45dp"
-            android:src="@drawable/arrow_back" />
+            android:src="@drawable/arrow_back"
+            android:background="@android:color/transparent"/>
 
         <TextView
             app:layout_constraintTop_toTopOf="parent"
@@ -76,6 +79,7 @@
                         app:srcCompat="@drawable/usericon" />
 
                     <TextView
+                        android:id="@+id/nombre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -101,14 +105,15 @@
                     android:layout_height="60dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="221dp"
-                    android:textColor="@color/black"
-                    android:paddingStart="50dp"
-                    android:textAlignment="textStart"
-                    android:backgroundTint="@color/white"
                     android:background="@drawable/border3"
+                    android:paddingStart="50dp"
+                    android:text="Notificaciones"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
-
-                    android:text="Notificaciones"></Button>
+                    android:visibility="visible"
+                    app:iconTint="#0D0909"
+                    tools:visibility="visible"></Button>
 
 
                 <Button
