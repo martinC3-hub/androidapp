@@ -37,6 +37,10 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    viewBinding{
+        enable=true
+    }
 }
 
 dependencies {
@@ -57,4 +61,5 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("com.google.firebase:firebase-firestore-ktx:24.11.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 }

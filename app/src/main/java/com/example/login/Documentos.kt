@@ -29,10 +29,10 @@ class Documentos : Fragment() {
             Toast.makeText(getContext(), "Button volvera en avengers 2", Toast.LENGTH_SHORT).show()
         }
 
-        val buttonback= rootView.findViewById<ImageButton>(R.id.back)
-        buttonback.setOnClickListener{
+        val buttonback = rootView.findViewById<ImageButton>(R.id.back)
+        buttonback.setOnClickListener {
             val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.container, Avisos())  // Cambia "R.id.container" por el ID del contenedor de fragmentos
+            fragmentTransaction.replace(R.id.container, Buscar())  // Cambia "R.id.container" por el ID del contenedor de fragmentos
             fragmentTransaction.addToBackStack(null)  // Esto permite regresar al fragmento anterior
             fragmentTransaction.commit()
         }

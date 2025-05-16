@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import android.content.Intent
+import android.widget.ImageButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,19 @@ class Perfil : Fragment() {
         val textV = rootView.findViewById<TextView>(R.id.nombre)
         val texto: String = activity?.intent?.getStringExtra("EXTRA_TEXTO").orEmpty()
         textV.text = "Bienvenido $texto"
+
+        val buttonback= rootView.findViewById<ImageButton>(R.id.back)
+        buttonback.setOnClickListener{
+            val intento= Intent(requireContext(), Skillhubmainpage::class.java)
+            startActivity(intento)
+        }
+
+        val buttoncerrar= rootView.findViewById<Button>(R.id.cerrar)
+        buttoncerrar.setOnClickListener{
+            val intento= Intent(requireContext(), MainActivity::class.java)
+            startActivity(intento)
+        }
+
 
         return rootView
     }
