@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:text="Título"/>
 
         <LinearLayout
@@ -29,19 +29,21 @@
 
             <TextView
                 android:background="@color/gray"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:id="@+id/tipo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/blue"
                 android:layout_weight="1"
                 android:text="Tipo"
                 android:textStyle="italic"
                 android:textAlignment="center"
-                android:textSize="16sp"/>
+                android:textSize="21sp"/>
 
             <TextView
                 android:background="@color/gray"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/blue"
                 android:id="@+id/facultad"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -49,7 +51,7 @@
                 android:text="Facultad"
                 android:textAlignment="center"
                 android:textStyle="italic"
-                android:textSize="16sp"/>
+                android:textSize="21sp"/>
         </LinearLayout>
 
         <TextView
@@ -58,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="Descripción"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textColor="@color/black"/>
         <TextView
             android:id="@+id/contacto"
@@ -66,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="Descripción"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textColor="@color/black"/>
 
 

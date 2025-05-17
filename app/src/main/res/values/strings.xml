@@ -39,8 +39,17 @@
         <item>Aviso</item>
         <item>Tramite</item>
         <item>Evento</item>
+    </string-array>
 
 
+    <string-array name="tipos">
+        <item>Tópicos</item>
+        <item>Programación</item>
+        <item>Base de datos</item>
+        <item>Softskills</item>
+        <item>Ciencia</item>
+        <item>Redes e infraestrctura</item>
+        <item>CV</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

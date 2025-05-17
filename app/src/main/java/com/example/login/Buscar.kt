@@ -1,6 +1,8 @@
 package com.example.login
 
 import android.content.Intent
+import android.icu.text.Transliterator.Position
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +23,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 class Buscar : Fragment() {
 
     private lateinit var rootView: View
+    private var buscarMutableList: MutableList<Busqueda> = mutableListOf()
+    private lateinit var adapter: BusquedaAdapter
+    private var listaOriginal: MutableList<Busqueda> = mutableListOf()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,65 +34,23 @@ class Buscar : Fragment() {
         rootView = inflater.inflate(R.layout.fragment_buscar, container, false)
         val buscar = rootView.findViewById<SearchView>(R.id.buscar)
 
-        initReclyclerView()
-        val button = rootView.findViewById<Button>(R.id.descarga)
-        // Set the click listener
-        button.setOnClickListener {
-            // Open the specified URL in a browser
-            Toast.makeText(getContext(), "Button volvera en avengers 2", Toast.LENGTH_SHORT).show()
-        }
+        initRecyclerView()
 
-        val buttonback= rootView.findViewById<ImageButton>(R.id.back)
-        buttonback.setOnClickListener{
-            val intento= Intent(requireContext(), Skillhubmainpage::class.java)
+        val buttonback = rootView.findViewById<ImageButton>(R.id.back)
+        buttonback.setOnClickListener {
+            val intento = Intent(requireContext(), Skillhubmainpage::class.java)
             startActivity(intento)
-            }
-
-
-        return rootView
-    }
-
-    private fun initReclyclerView(){
-        val recyclerView = rootView.findViewById<RecyclerView>(R.id.lista)
-        val manager=LinearLayoutManager(requireContext())
-        //val decoration=DividerItemDecoration(requireContext(), manager.orientation)
-        recyclerView.layoutManager= manager
-        recyclerView.adapter=
-            BusquedaAdapter(BusquedaProvider.busquedaFirst) { nombre ->
-                onItemSelected(
-                    nombre
-                )
         }
-        //recyclerView.addItemDecoration(decoration)
-    }
 
-    fun onItemSelected(busqueda: Busqueda) {
-        //Toast.makeText(requireContext(), busqueda.nombre, Toast.LENGTH_SHORT).show()
-
+        val buttonAdd = rootView.findViewById<ImageButton>(R.id.add)
+        buttonAdd.setOnClickListener {
+            // Al hacer clic en el botón, reemplaza el fragmento actual por "Add"
             val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.container, Documentos())
-            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.replace(R.id.container, Add2())  // Cambia "R.id.container" por el ID del contenedor de fragmentos
+            fragmentTransaction.addToBackStack(null)  // Esto permite regresar al fragmento anterior
             fragmentTransaction.commit()
         }
-    }
 
-
-/*
-val adaptador = BusquedaAdapter(emptyList())
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adaptador
-
-        val db = FirebaseFirestore.getInstance()
-
-        db.collection("notas")
-            .get()
-            .addOnSuccessListener { result ->
-                val lista = result.mapNotNull { it.toObject(Busqueda::class.java) }
-                adaptador.actualizarLista(lista)
-            }
-            .addOnFailureListener {
-                Toast.makeText(context, "Error al cargar", Toast.LENGTH_SHORT).show()
-            }
 
         buscar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -94,12 +58,69 @@ val adaptador = BusquedaAdapter(emptyList())
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                adaptador.filtrar(newText ?: "")
+                filtrarBusqueda(newText.orEmpty())
                 return true
             }
         })
 
- */
+        return rootView
+    }
+
+    private fun initRecyclerView() {
+        val recyclerView = rootView.findViewById<RecyclerView>(R.id.lista)
+        val manager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = manager
+
+        BusquedaProvider.cargarBusquedasF(
+            onComplete = { listaDesdeFirestore ->
+                listaOriginal.clear()
+                listaOriginal.addAll(listaDesdeFirestore)
+
+                buscarMutableList.clear()
+                buscarMutableList.addAll(listaDesdeFirestore)
+
+                adapter = BusquedaAdapter(
+                    listaOriginal = buscarMutableList,
+                    onClickListener = { nombre -> onItemSelected(nombre) },
+                    onClickDelete = { position -> onDeleteItem(position) }
+                )
+
+                recyclerView.adapter = adapter
+            },
+            onError = { exception ->
+                Toast.makeText(requireContext(), "Error al cargar: ${exception.message}", Toast.LENGTH_SHORT).show()
+            }
+        )
+    }
+
+    private fun onDeleteItem(position: Int){
+        buscarMutableList.removeAt(position)
+        adapter.notifyItemRemoved(position)
+    }
+
+    private fun filtrarBusqueda(texto: String) {
+        val listaFiltrada = listaOriginal.filter {
+            it.nombre.contains(texto, ignoreCase = true) || it.tipo.contains(texto, ignoreCase = true)
+        }
+        buscarMutableList.clear()
+        buscarMutableList.addAll(listaFiltrada)
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun onItemSelected(busqueda: Busqueda) {
+        //Toast.makeText(requireContext(), busqueda.nombre, Toast.LENGTH_SHORT).show()
+
+            val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(busqueda.url))
+            //fragmentTransaction.replace(R.id.container, Documentos())
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+            startActivity(intent)
+        }
+    }
+
+
+
 
 
 

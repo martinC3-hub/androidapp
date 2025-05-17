@@ -95,7 +95,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registrar"
         android:layout_width="125sp"
-        android:layout_height="48sp"
+        android:layout_height="44sp"
         android:backgroundTint="@color/blue"
         android:padding="5sp"
         android:text="Registrarse"
@@ -110,8 +110,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/aceptar"
-        android:layout_width="270sp"
-        android:layout_height="48sp"
+        android:layout_width="250sp"
+        android:layout_height="44sp"
         android:backgroundTint="@color/blue"
         android:padding="5sp"
         android:background="@drawable/borderbutton"

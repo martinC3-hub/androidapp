@@ -1,11 +1,10 @@
 package com.example.login.adapter
 
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.login.Busqueda
@@ -16,12 +15,18 @@ class BusquedaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val nombre = itemView.findViewById<TextView>(R.id.tvNombre)
     val tipo = itemView.findViewById<TextView>(R.id.tvTipo)
     val imagen = itemView.findViewById<ImageView>(R.id.ivBusqueda)
+    val borrar = itemView.findViewById<ImageButton>(R.id.borrar)
 
-    fun render(busqueda: Busqueda, onClickListener:(Busqueda) -> Unit){
+    fun render(
+        busqueda: Busqueda,
+        onClickListener: (Busqueda) -> Unit,
+        onClickDelete: (Int) -> Unit
+    ){
         nombre.text=busqueda.nombre
         tipo.text=busqueda.tipo
         Glide.with(imagen.context).load(busqueda.imagen).into(imagen)
         itemView.setOnClickListener {onClickListener(busqueda)}
+        borrar.setOnClickListener{onClickDelete(adapterPosition)}
     }
 }
 

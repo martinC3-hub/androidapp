@@ -17,7 +17,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="830dp"
+                android:layout_height="wrap_content"
                 android:background="@color/black"
                 >
 
@@ -28,6 +28,7 @@
                     android:elevation="4dp"
                     android:orientation="vertical"
                     android:padding="24dp">
+
                     <SearchView
                         android:id="@+id/buscar"
                         android:layout_width="match_parent"
@@ -44,14 +45,6 @@
                         android:layout_marginTop="4dp"
                         android:layout_weight="1" />
 
-
-                    <Button
-                        android:id="@+id/descarga"
-                        android:layout_width="440sp"
-                        android:layout_height="1sp"
-                        android:layout_gravity="top"
-                        android:layout_marginTop="5dp"
-                        android:backgroundTint="@color/white" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -87,6 +80,16 @@
             android:text="Buscar"
             android:textColor="@color/white"
             android:textSize="28dp" />
+
+        <ImageButton
+            android:id="@+id/add"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/add"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

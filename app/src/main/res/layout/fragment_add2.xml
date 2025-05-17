@@ -35,10 +35,9 @@
             app:layout_constraintBottom_toBottomOf="@id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Avisos"
+            android:text="Documentos"
             android:textColor="@color/white"
             android:textSize="28dp" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Scrollable Content -->
@@ -67,7 +66,7 @@
                     android:id="@+id/text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Crear Aviso"
+                    android:text="Generar Recursos"
                     android:textSize="35dp"
                     android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +74,7 @@
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <EditText
-                    android:id="@+id/tituloInput"
+                    android:id="@+id/nombre"
                     android:layout_width="match_parent"
                     android:layout_marginTop="30dp"
                     android:textSize="22sp"
@@ -88,58 +87,49 @@
                     app:layout_constraintTop_toBottomOf="@id/text" />
 
                 <TextView
+                    android:text="Tipo"
+                    android:layout_marginTop="15dp"
+                    android:textSize="22sp"
                     android:id="@+id/flairs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Agregar una etiqueta"
-                    android:textSize="22sp"
-                    android:layout_marginTop="15dp"
                     android:textColor="@color/black"
-                    app:layout_constraintTop_toBottomOf="@id/tituloInput"
-                    app:layout_constraintStart_toStartOf="@id/tituloInput"/>
+                    app:layout_constraintTop_toBottomOf="@id/nombre"
+                    app:layout_constraintStart_toStartOf="@id/nombre"/>
 
                 <Spinner
                     app:layout_constraintTop_toBottomOf="@id/flairs"
                     app:layout_constraintStart_toStartOf="@id/flairs"
-                    android:id="@+id/spinner_flairs"
+                    android:id="@+id/tipo"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:spinnerMode="dropdown"
-                    android:background="@color/gray"
-                    />
-
-                <Spinner
-                    app:layout_constraintTop_toBottomOf="@id/flairs"
-                    app:layout_constraintStart_toEndOf="@id/spinner_flairs"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:id="@+id/spinner_etiqueta"
-                    android:layout_width="wrap_content"
+                    android:textSize="22sp"
+                    android:textColor="@color/white"
                     android:layout_height="35dp"
                     android:spinnerMode="dropdown"
                     android:background="@color/gray"
                     />
 
                 <EditText
-                    android:id="@+id/cuerpoInput"
-                    android:hint="cuerpo de texto (opcional)"
+                    android:id="@+id/imgUrl"
+                    android:hint="URL de la imagen (debe contener una resolucion igual tanto en ancho como de alto)"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tipo"
+                    app:layout_constraintStart_toStartOf="@id/nombre"
                     android:layout_marginTop="15dp"
                     android:textSize="22sp"
-                    app:layout_constraintTop_toBottomOf="@id/spinner_flairs"
-                    app:layout_constraintStart_toStartOf="@id/tituloInput"
                     android:textColor="@color/black" />
 
                 <EditText
-                    android:id="@+id/contactoInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/linkUrl"
+                    android:hint="URL de direccionamiento! "
                     android:layout_marginTop="15dp"
-                    android:hint="datos de contacto"
-                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
                     android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="@id/tituloInput"
-                    app:layout_constraintTop_toBottomOf="@id/cuerpoInput" />
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/imgUrl"
+                    app:layout_constraintStart_toStartOf="@id/nombre"
+                    android:textColor="@color/black" />
 
                 <Button
                     android:id="@+id/btnGuardar"
@@ -150,7 +140,7 @@
                     android:backgroundTint="@color/blue"
                     android:text="Guardar"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toBottomOf="@id/contactoInput" />
+                    app:layout_constraintTop_toBottomOf="@id/linkUrl" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
