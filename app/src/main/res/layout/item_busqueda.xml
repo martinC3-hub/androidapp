@@ -33,7 +33,7 @@
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="@color/black"
-        tools:text="Introduccion a la programacion"/>
+        tools:text="Aprende a Desarrollar tus habilidades blandas"/>
 
     <TextView
         android:id="@+id/tvTipo"
@@ -46,7 +46,7 @@
         android:layout_marginLeft="160dp"
         app:layout_constraintStart_toEndOf="@id/ivBusqueda"
         app:layout_constraintTop_toBottomOf="@id/tvNombre"
-        tools:text="Programacion" />
+        tools:text="SoftSkills" />
 
     <ImageButton
         android:id="@+id/borrar"
