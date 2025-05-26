@@ -6,190 +6,105 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import android.content.Intent
 import android.widget.ImageButton
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.appcompat.app.AppCompatActivity
-
+import android.widget.TextView
+import android.content.Intent
+import android.util.Log
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class Perfil : Fragment() {
 
+    private lateinit var textNombre: TextView
+    private lateinit var textExp: TextView
+    private lateinit var textFacultad: TextView
+    private lateinit var textCarrera: TextView
+    private val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
+        val user = FirebaseAuth.getInstance().currentUser
+        val correo = user?.email
         val rootView = inflater.inflate(R.layout.fragment_perfil, container, false)
+        textNombre = rootView.findViewById(R.id.nombre)
+        textExp = rootView.findViewById(R.id.expediente)
+        textFacultad = rootView.findViewById(R.id.facultad)
+        textCarrera = rootView.findViewById(R.id.carrera)
+
+        obtenerNombreUsuario()
         // Get the button from the layout
-        val textV = rootView.findViewById<TextView>(R.id.nombre)
+        val textV = rootView.findViewById<TextView>(R.id.correo)
         val texto: String = activity?.intent?.getStringExtra("EXTRA_TEXTO").orEmpty()
-        textV.text = "Bienvenido $texto"
+        textV.text = "$texto"
+
+        val button = rootView.findViewById<Button>(R.id.info)
+        button.setOnClickListener {
+            Toast.makeText(getContext(), "Versión 1.0 - Desarrollada por: AGJ\nApp desarrolladora de habilidades.", Toast.LENGTH_SHORT).show()
+        }
 
         val buttonback= rootView.findViewById<ImageButton>(R.id.back)
         buttonback.setOnClickListener{
             val intento= Intent(requireContext(), Skillhubmainpage::class.java)
             startActivity(intento)
         }
-
         val buttoncerrar= rootView.findViewById<Button>(R.id.cerrar)
         buttoncerrar.setOnClickListener{
             val intento= Intent(requireContext(), MainActivity::class.java)
             startActivity(intento)
         }
 
+        val db = FirebaseFirestore.getInstance()
+
+        if (correo != null) {
+            db.collection("usuarios")
+                .whereEqualTo("email", correo)
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    if (!querySnapshot.isEmpty) {
+                        val documento = querySnapshot.documents[0]
+                        val nombre = documento.getString("nombre")
+                        Log.d("Firestore", "Nombre del usuario: $nombre")
+                    } else {
+                        Log.d("Firestore", "No se encontró usuario con ese correo")
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Log.e("Firestore", "Error al buscar usuario", e)
+                }
+        }
+
 
         return rootView
     }
 
-}
+    private fun obtenerNombreUsuario() {
+        val correo = auth.currentUser?.email
 
-/*
-package com.example.login
-
-import android.os.Bundle
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-
-class mainpage : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.skillhubmainpage)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-        val textV = findViewById<TextView>(R.id.mensaje)
-        val texto:String = intent.extras?.getString("EXTRA_TEXTO").orEmpty()
-        textV.text="Bienvenido $texto"
-    }
-}
-
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".mainpage">
-
-    <TextView
-        android:id="@+id/mensaje"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido Correo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-    </TextView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-package com.example.login
-
-import android.content.Intent
-import android.os.Bundle
-import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatEditText
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.auth.FirebaseAuth
-
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var auth: FirebaseAuth
-    private lateinit var user: AppCompatEditText
-    private lateinit var psw: AppCompatEditText
-    private lateinit var btnLogin: AppCompatButton
-    private lateinit var btnRegister: AppCompatButton
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-
-        //definicion de las variables
-        auth = FirebaseAuth.getInstance() //objeto autenticación
-        user = findViewById<AppCompatEditText>(R.id.input2)
-        psw = findViewById<AppCompatEditText>(R.id.input)
-        btnLogin = findViewById<AppCompatButton>(R.id.aceptar)
-        btnRegister = findViewById<AppCompatButton>(R.id.registrar)
-
-
-        val input2 = findViewById<AppCompatEditText>(R.id.input2)
-        val input = findViewById<AppCompatEditText>(R.id.input)
-        val btnaceptar = findViewById<AppCompatButton>(R.id.aceptar)
-        val btnregistrar = findViewById<AppCompatButton>(R.id.registrar)
-        val output = findViewById<TextView>(R.id.output)
-
-
-
-        fun login(correo: String, contra: String) {
-            auth.signInWithEmailAndPassword(correo, contra)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "Login exitoso", Toast.LENGTH_SHORT).show()
-                        val intento= Intent(this, mainpage::class.java)
-                        intento.putExtra("EXTRA_TEXTO", correo)
-                        startActivity(intento)
-                    } else {
-                        Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+        if (correo != null) {
+            db.collection("users")
+                .whereEqualTo("correo", correo)
+                .get()
+                .addOnSuccessListener { snapshot ->
+                    if (!snapshot.isEmpty) {
+                        val doc = snapshot.documents[0]
+                        val nombre = doc.getString("nombre")
+                        val exp = doc.getString("expediente")
+                        val facultad = doc.getString("facultad")
+                        val carrera = doc.getString("carrera")
+                        textNombre.text = "Bienvenido, $nombre"
+                        textExp.text = "$exp"
+                        textFacultad.text = "$facultad"
+                        textCarrera.text = "$carrera"
                     }
                 }
         }
-        fun registrar(correo: String, contra: String) {
-            auth.createUserWithEmailAndPassword(correo, contra)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
-
-                    } else {
-                        Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                    }
-                }
-        }
-
-        btnLogin.setOnClickListener{
-            val correo = user.text.toString().trim()
-            val contra = psw.text.toString().trim()
-            if(correo.isNotEmpty() && contra.isNotEmpty()){
-                login(correo,contra)
-            }else{
-                Toast.makeText(this,"Ingresa las credenciales",Toast.LENGTH_SHORT).show()
-            }
-        }
-        btnRegister.setOnClickListener{
-            val correo = user.text.toString().trim()
-            val contra = psw.text.toString().trim()
-            if(correo.isNotEmpty() && contra.isNotEmpty()){
-                registrar(correo,contra)
-            }else{
-                Toast.makeText(this,"Ingresa las credenciales",Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
     }
 }
- */
+
+
+

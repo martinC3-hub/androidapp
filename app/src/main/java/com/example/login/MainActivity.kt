@@ -1,7 +1,9 @@
 package com.example.login
 
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         psw = findViewById<AppCompatEditText>(R.id.input)
         btnLogin = findViewById<AppCompatButton>(R.id.aceptar)
         btnRegister = findViewById<AppCompatButton>(R.id.registrar)
+        val boton = findViewById<Button>(R.id.registrar)
+        boton.paintFlags = boton.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 
         fun login(correo: String, contra: String) {
             auth.signInWithEmailAndPassword(correo, contra)

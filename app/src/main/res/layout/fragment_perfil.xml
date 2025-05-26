@@ -90,6 +90,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/correo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -100,46 +101,123 @@
 
                 </LinearLayout>
 
-                <Button
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="213dp"
+                    android:layout_marginLeft="15dp"
+                    android:padding="10dp"
+                    android:textSize="18sp"
+                    android:text="Información"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    />
+
+
+                <LinearLayout
                     android:layout_width="395dp"
                     android:layout_height="60dp"
+                    android:elevation="4dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="221dp"
                     android:background="@drawable/border3"
-                    android:paddingStart="50dp"
-                    android:text="Notificaciones"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:visibility="visible"
-                    app:iconTint="#0D0909"
-                    tools:visibility="visible"></Button>
+                    android:layout_marginTop="257dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Expediente..."
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="25dp"
+                        android:textColor="@color/black"
+                        android:textStyle="italic"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/expediente"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="end"
+                        android:layout_marginRight="25dp"
+                        android:layout_weight="1"
+                        android:text="286277"
+                        android:textColor="@color/gray"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
 
 
-                <Button
+                <LinearLayout
                     android:layout_width="395dp"
                     android:layout_height="60dp"
+                    android:elevation="4dp"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="269dp"
-                    android:paddingStart="50dp"
-                    android:textAlignment="textStart"
-                    android:textSize="20sp"
-
                     android:background="@drawable/border4"
-                    android:text="Privacidad"></Button>
+                    android:layout_marginTop="314dp"
+                    android:padding="10dp">
 
-                <Button
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Facultad..."
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="25dp"
+                        android:textColor="@color/black"
+                        android:textStyle="italic"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/facultad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="end"
+                        android:layout_marginRight="25dp"
+                        android:layout_weight="1"
+                        android:text="Facultad de Informática"
+                        android:textColor="@color/gray"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:layout_width="395dp"
                     android:layout_height="60dp"
+                    android:elevation="4dp"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/black"
-                    android:paddingStart="50dp"
-                    android:textAlignment="textStart"
-                    android:layout_marginTop="319dp"
-                    android:textSize="20sp"
-                    android:background="@drawable/border4"
-                    android:text="Idioma"></Button>
+                    android:background="@drawable/border5"
+                    android:layout_marginTop="370dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Carrera..."
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="25dp"
+                        android:textColor="@color/black"
+                        android:textStyle="italic"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/carrera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="end"
+                        android:layout_marginRight="25dp"
+                        android:layout_weight="1"
+                        android:text="Ing. de Software"
+                        android:textColor="@color/gray"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
 
                 <Button
                     android:id="@+id/cerrar"
@@ -147,27 +225,28 @@
                     android:layout_height="60dp"
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/black"
-                    android:layout_marginTop="369dp"
+                    android:layout_marginTop="445dp"
                     android:textAlignment="textStart"
-                    android:paddingStart="50dp"
+                    android:paddingStart="37dp"
                     android:textSize="20sp"
 
-                    android:background="@drawable/border4"
-                    android:text="Cerrar Sesión"></Button>
+                    android:background="@drawable/border3"
+                    android:text="Cerrar Sesión"/>
 
 
 
                 <Button
+                    android:id="@+id/info"
                     android:layout_width="395dp"
                     android:textAlignment="textStart"
                     android:layout_height="60dp"
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/black"
-                    android:layout_marginTop="419dp"
-                    android:paddingStart="50dp"
+                    android:layout_marginTop="495dp"
+                    android:paddingStart="37dp"
                     android:textSize="20sp"
                     android:background="@drawable/border5"
-                    android:text="Acerca de..."></Button>
+                    android:text="Acerca de..."/>
 
 
             </RelativeLayout>
